@@ -2,58 +2,34 @@ import React from 'react';
 
 /**
  * DACOTA Official Brand Logo Component
- * Clean black & white design with the signature DACOTA red triangle mark element.
+ * Renders official brand logo image from /image/logo.jpeg
  */
 const DacotaLogo = ({ variant = 'dark', className = '', size = 'md' }) => {
-  const textColor = variant === 'light' ? '#FFFFFF' : '#09090B';
-  const subtextColor = variant === 'light' ? '#A1A1AA' : '#52525B';
-  const redColor = '#D32F2F';
-
   const sizeClasses = {
-    sm: 'h-8',
-    md: 'h-10',
-    lg: 'h-14'
+    sm: 'h-7 sm:h-8',
+    md: 'h-8 sm:h-10',
+    lg: 'h-10 sm:h-14'
   };
 
   return (
-    <div className={`flex items-center gap-3 select-none ${className}`}>
-      {/* Signature Red Triangle Mark */}
-      <svg
-        className={`${sizeClasses[size]} w-auto aspect-square text-[#D32F2F] shrink-0`}
-        viewBox="0 0 100 100"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <polygon points="50,8 92,85 8,85" fill={redColor} />
-        <polygon points="50,32 75,76 25,76" fill={variant === 'light' ? '#09090B' : '#FAF9F6'} />
-        <polygon points="50,48 62,70 38,70" fill={redColor} />
-      </svg>
-
-      {/* Brand Typography */}
-      <div className="flex flex-col leading-none">
-        <div className="flex items-center gap-1">
-          <span 
-            className="font-extrabold tracking-wider text-xl sm:text-28 border-b-2 border-[#D32F2F] pb-0.5"
-            style={{ 
-              color: textColor,
-              fontFamily: "'Poppins', sans-serif",
-              letterSpacing: '0.12em',
-              fontWeight: 800
-            }}
-          >
-            DACOTA
-          </span>
+    <div className={`flex items-center select-none ${className}`}>
+      {variant === 'light' ? (
+        // Dark background (e.g. Footer): background container or inverted rendering
+        <div className="bg-white px-2.5 py-1 rounded shadow-sm inline-flex items-center justify-center">
+          <img
+            src="/image/logo.jpeg"
+            alt="DACOTA Commercial Kitchen Equipment"
+            className={`${sizeClasses[size]} w-auto object-contain`}
+          />
         </div>
-        <span 
-          className="text-[9px] sm:text-[10px] tracking-widest font-semibold uppercase mt-1"
-          style={{ 
-            color: subtextColor,
-            letterSpacing: '0.22em'
-          }}
-        >
-          KITCHEN EQUIPMENT
-        </span>
-      </div>
+      ) : (
+        // Light background (e.g. Navbar, Header, Cards)
+        <img
+          src="/image/logo.jpeg"
+          alt="DACOTA Commercial Kitchen Equipment"
+          className={`${sizeClasses[size]} w-auto object-contain mix-blend-multiply`}
+        />
+      )}
     </div>
   );
 };
