@@ -7,7 +7,7 @@ import Button from './Button';
 const navItems = [
   { label: 'Home', path: '/' },
   { label: 'About Us', path: '/about' },
-  // { label: 'Products', path: '/products' },
+  { label: 'Products', path: '/products' },
   // { label: 'Industries', path: '/industries' },
   // { label: 'Turnkey Solutions', path: '/turnkey-solutions' },
   // { label: 'Manufacturing', path: '/manufacturing' },
