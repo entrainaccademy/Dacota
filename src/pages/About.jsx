@@ -1,159 +1,105 @@
 import React from 'react';
-import SectionTitle from '../components/SectionTitle';
-import Button from '../components/Button';
-import Reveal from '../components/Reveal';
-import { ShieldCheck, Target, Eye, Award, Wrench, CheckCircle2, Box, Compass } from 'lucide-react';
+import './About.css';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Check, Compass, Headphones, PackageCheck, Wrench } from 'lucide-react';
 
-const values = [
-  { title: "Quality", desc: "Uncompromising use of SS 304 food-grade stainless steel and heavy-gauge construction across all equipment lines.", icon: ShieldCheck },
-  { title: "Product Expertise", desc: "Specialized engineering in fried chicken machines, broasting machinery, commercial convection ovens, and pizza ovens.", icon: Target },
-  { title: "Reliability", desc: "Equipment designed and tested to withstand round-the-clock commercial kitchen stress without failure.", icon: Award },
-  { title: "Customer Focus", desc: "Customizing solutions around unique client menu requirements, spatial layout constraints, and budgets.", icon: Eye },
-  { title: "Engineering Excellence", desc: "Precision CNC fabrication, TIG welding craftsmanship, and strict post-assembly quality testing.", icon: Wrench }
+const capabilities = [
+  { number: '01', title: 'Equipment supply', text: 'Commercial cooking equipment selected around your menu, volume, and operating model.', icon: PackageCheck },
+  { number: '02', title: 'Installation', text: 'Careful placement, utility connections, testing, and commissioning by experienced technicians.', icon: Wrench },
+  { number: '03', title: 'Kitchen planning', text: 'Practical layouts that make movement, service, ventilation, and production flow better.', icon: Compass },
+  { number: '04', title: 'Ongoing support', text: 'Preventive maintenance, breakdown response, and access to the right spare parts.', icon: Headphones },
 ];
+
+const principles = [
+  ['Built for the real shift', 'We choose materials and components for long service hours, not showroom appeal.'],
+  ['Useful before impressive', 'Every detail should make the kitchen safer, faster, or easier to maintain.'],
+  ['Present after handover', 'Our responsibility continues through training, service, and day-to-day support.'],
+];
+
+const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
 const About = () => {
   return (
-    <div className="pt-28 pb-20 space-y-20">
-      
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-b from-zinc-200/60 to-[#FAF9F6] py-16 sm:py-24 border-b border-zinc-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Reveal>
-            <span className="text-xs font-mono font-bold text-[#D32F2F] uppercase tracking-widest bg-[#D32F2F]/10 px-3 py-1 rounded">
-              Established in 2021
-            </span>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-[#09090B] tracking-tight uppercase mt-4">
-              BUILT ON ENGINEERING. <br />
-              <span className="text-[#D32F2F]">DRIVEN BY QUALITY.</span>
-            </h1>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <p className="mt-6 text-base sm:text-lg text-zinc-600 max-w-3xl mx-auto leading-relaxed">
-              Established in 2021, DACOTA is a commercial kitchen equipment and food-service machinery company delivering reliable equipment supply, installation, complete setup solutions, and maintenance for professional food-service businesses.
-            </p>
-          </Reveal>
+    <main className="about-page">
+      <section className="about-hero">
+        <div className="about-shell about-hero-grid">
+          <motion.div className="about-hero-copy" initial="hidden" animate="visible" transition={{ staggerChildren: 0.1 }}>
+            <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="about-hero-est">
+              <span>Est. 2021</span>
+              <i />
+              <span>Commercial kitchen specialists</span>
+            </motion.div>
+            <motion.h1 variants={fadeUp} transition={{ duration: 0.7 }}>Kitchens work better<br />when the <em>equipment does.</em></motion.h1>
+            <motion.p variants={fadeUp} transition={{ duration: 0.7 }} className="about-lead">We design, supply, and support commercial kitchen equipment for teams who need their operation to perform—day after day, service after service.</motion.p>
+            <motion.div variants={fadeUp} transition={{ duration: 0.7 }} className="about-hero-actions">
+              <Link to="/request-quote" className="about-primary-link">Start a project <ArrowUpRight size={17} /></Link>
+              <Link to="/products" className="about-text-link">Explore equipment <ArrowUpRight size={15} /></Link>
+            </motion.div>
+            <motion.div variants={fadeUp} transition={{ duration: 0.7 }} className="about-hero-capabilities">
+              <span>Equipment supply</span><i />
+              <span>Installation</span><i />
+              <span>Kitchen planning</span><i />
+              <span>Maintenance</span>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Main Story & Factory Imagery */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <Reveal>
-            <div className="space-y-6">
-              <span className="text-xs font-bold text-[#D32F2F] uppercase tracking-wider">Experience Since 2021</span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#09090B] uppercase leading-tight">
-                SPECIALIZED FOOD-SERVICE MACHINERY & KITCHEN SOLUTIONS
-              </h2>
-              <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
-                Since our founding in 2021, DACOTA has specialized in professional commercial kitchen equipment — including pressure broasting machines, fried chicken open fryers, commercial convection ovens, deck and conveyor pizza ovens, bakery machinery, and custom stainless steel fabrication.
-              </p>
-              <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
-                We combine practical food-service engineering with 4 core service capabilities: commercial equipment supply, professional on-site installation, complete kitchen setup solutions, and long-term equipment maintenance.
-              </p>
-
-              <div className="pt-4 grid grid-cols-2 gap-4 text-xs font-bold text-[#09090B]">
-                <div className="flex items-center space-x-2 bg-white p-3 rounded border border-zinc-200">
-                  <CheckCircle2 className="w-4 h-4 text-[#D32F2F]" />
-                  <span>Established in 2021</span>
-                </div>
-                <div className="flex items-center space-x-2 bg-white p-3 rounded border border-zinc-200">
-                  <CheckCircle2 className="w-4 h-4 text-[#D32F2F]" />
-                  <span>4 Core Services</span>
-                </div>
-              </div>
+      <section className="about-story about-shell">
+        <div className="about-story-grid about-story-grid-no-label">
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+          >
+            A dependable kitchen is never an accident.
+          </motion.h2>
+          <motion.div
+            className="about-story-copy"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
+            <p className="about-dropcap">DACOTA began with a straightforward idea: commercial kitchens deserve equipment partners who understand what happens after the drawings are approved and the doors open.</p>
+            <p>Since 2021, we have focused on the working realities of food service—heat, volume, tight timelines, demanding menus, and no room for downtime. That perspective shapes everything from the machines we recommend to the way we install and maintain them.</p>
+            <div className="about-proof-row">
+              <div><strong>2021</strong><span>Year established</span></div>
+              <div><strong>4</strong><span>End-to-end services</span></div>
+              <div><strong>Pan India</strong><span>Project capability</span></div>
             </div>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <div className="grid grid-cols-2 gap-4">
-              <img 
-                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800" 
-                alt="DACOTA Factory Fabrication Works" 
-                className="rounded-lg shadow-md border border-zinc-200 h-56 object-cover w-full"
-              />
-              <img 
-                src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" 
-                alt="Stainless Steel Welding" 
-                className="rounded-lg shadow-md border border-zinc-200 h-56 object-cover w-full mt-6"
-              />
-            </div>
-          </Reveal>
+          </motion.div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="bg-[#09090B] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Reveal>
-              <div className="bg-[#18181B] border-l-4 border-[#D32F2F] p-8 rounded-r-lg">
-                <span className="text-xs font-mono font-bold text-[#D32F2F] uppercase tracking-widest">OUR MISSION</span>
-                <h3 className="text-xl font-bold uppercase mt-2">Engineering Superior Kitchen Workflows</h3>
-                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mt-4">
-                  To supply, install, and maintain high-performance commercial kitchen equipment and food-service machinery that enhances kitchen operational speed, energy efficiency, and long-term reliability.
-                </p>
-              </div>
-            </Reveal>
+      <section className="about-capabilities"><div className="about-shell">
+        <div className="about-section-label about-section-label-light"><span>02</span> What we do</div>
+        <div className="about-capabilities-heading"><h2>From equipment selection<br />to the first service.</h2><p>One accountable team across the entire kitchen journey.</p></div>
+        <div className="about-capability-list">{capabilities.map((item, index) => { const Icon = item.icon; return (
+          <motion.article key={item.number} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-40px' }} transition={{ duration: 0.55, delay: index * 0.08 }} whileHover={{ y: -6 }}>
+            <div className="about-capability-top"><span>{item.number}</span><Icon size={22} /></div><h3>{item.title}</h3><p>{item.text}</p>
+          </motion.article>); })}</div>
+      </div></section>
 
-            <Reveal delay={0.2}>
-              <div className="bg-[#18181B] border-l-4 border-[#D32F2F] p-8 rounded-r-lg">
-                <span className="text-xs font-mono font-bold text-[#D32F2F] uppercase tracking-widest">OUR VISION</span>
-                <h3 className="text-xl font-bold uppercase mt-2">Setting the Benchmark in Commercial Kitchens</h3>
-                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mt-4">
-                  To be the premier B2B partner for commercial kitchen equipment, broasters, ovens, and complete kitchen setups, known for product quality, technical expertise, and dependable nationwide support.
-                </p>
-              </div>
-            </Reveal>
-          </div>
+      <section className="about-principles about-shell">
+        <div className="about-section-label"><span>03</span> How we work</div>
+        <div className="about-principles-grid">
+          <div><h2>Practical thinking.<br />Precise execution.</h2><p>Three principles keep our decisions grounded.</p></div>
+          <div className="about-principle-list">{principles.map(([title, text], index) => (
+            <motion.div key={title} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: index * 0.08 }}>
+              <span className="about-check"><Check size={15} /></span><div><h3>{title}</h3><p>{text}</p></div>
+            </motion.div>))}</div>
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle 
-          badge="Guiding Principles"
-          title="CORE VALUES"
-          subtitle="The operational philosophy behind every equipment and service delivered by DACOTA."
-        />
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {values.map((val, idx) => {
-            const Icon = val.icon;
-            return (
-              <Reveal key={val.title} delay={idx * 0.1}>
-                <div className="bg-white border border-zinc-200 hover:border-black rounded-lg p-6 h-full flex flex-col justify-between transition-all">
-                  <div>
-                    <div className="w-10 h-10 rounded bg-zinc-100 text-[#09090B] flex items-center justify-center mb-4 font-bold">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <h4 className="text-base font-bold text-[#09090B] uppercase mb-2">{val.title}</h4>
-                    <p className="text-xs text-zinc-600 leading-relaxed">{val.desc}</p>
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
+      <section className="about-cta-wrap about-shell">
+        <motion.div className="about-cta" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.7 }}>
+          <div><span>Have a kitchen in mind?</span><h2>Let’s make it work.</h2></div><Link to="/request-quote" aria-label="Request a quote"><ArrowUpRight size={28} /></Link>
+        </motion.div>
       </section>
-
-      {/* CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="bg-white border border-zinc-200 rounded-xl p-8 sm:p-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#09090B] uppercase">DISCOVER DACOTA EQUIPMENT</h2>
-          <p className="text-xs sm:text-sm text-zinc-600 mt-2 max-w-xl mx-auto">Explore our catalogue of broasting machines, fried chicken fryers, convection ovens, pizza ovens, and commercial cooking equipment.</p>
-          <div className="mt-6">
-            <Button to="/products" variant="primary" size="lg">VIEW CATALOGUE</Button>
-          </div>
-        </div>
-      </section>
-
-    </div>
+    </main>
   );
 };
-
 export default About;
