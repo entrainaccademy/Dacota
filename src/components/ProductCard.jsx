@@ -8,7 +8,6 @@ const ProductCard = ({ product }) => {
       <Link to={`/products/${product.slug}`} className="catalogue-card-link" aria-label={`View ${product.name}`}>
         <div className="catalogue-card-image">
           <img src={product.image} alt={product.name} loading="lazy" />
-          <span className="catalogue-card-view"><ArrowUpRight size={18} /></span>
         </div>
         <div className="catalogue-card-body">
           <h3>{product.name}</h3>

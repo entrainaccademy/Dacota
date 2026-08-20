@@ -23,10 +23,6 @@ const Products = () => {
             <div>
               <h1>Equipment for kitchens that mean business.</h1>
             </div>
-            <div className="products-intro-aside">
-              <p>Commercial cooking, preparation, refrigeration, baking, and service equipment selected for demanding food-service operations.</p>
-              <Link to="/request-quote">Need help choosing? <ArrowRight size={15} /></Link>
-            </div>
           </motion.div>
         </div>
       </section>
