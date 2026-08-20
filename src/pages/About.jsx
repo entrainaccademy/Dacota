@@ -25,11 +25,6 @@ const About = () => {
       <section className="about-hero">
         <div className="about-shell about-hero-grid">
           <motion.div className="about-hero-copy" initial="hidden" animate="visible" transition={{ staggerChildren: 0.1 }}>
-            <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="about-hero-est">
-              <span>Est. 2021</span>
-              <i />
-              <span>Commercial kitchen specialists</span>
-            </motion.div>
             <motion.h1 variants={fadeUp} transition={{ duration: 0.7 }}>Kitchens work better<br />when the <em>equipment does.</em></motion.h1>
             <motion.p variants={fadeUp} transition={{ duration: 0.7 }} className="about-lead">We design, supply, and support commercial kitchen equipment for teams who need their operation to perform—day after day, service after service.</motion.p>
             <motion.div variants={fadeUp} transition={{ duration: 0.7 }} className="about-hero-actions">
