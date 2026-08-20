@@ -31,12 +31,6 @@ const About = () => {
               <Link to="/request-quote" className="about-primary-link">Start a project <ArrowUpRight size={17} /></Link>
               <Link to="/products" className="about-text-link">Explore equipment <ArrowUpRight size={15} /></Link>
             </motion.div>
-            <motion.div variants={fadeUp} transition={{ duration: 0.7 }} className="about-hero-capabilities">
-              <span>Equipment supply</span><i />
-              <span>Installation</span><i />
-              <span>Kitchen planning</span><i />
-              <span>Maintenance</span>
-            </motion.div>
           </motion.div>
         </div>
       </section>
