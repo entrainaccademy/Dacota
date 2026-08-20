@@ -1,9 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { CheckCircle2, FileText, ChevronRight, Shield, PhoneCall } from 'lucide-react';
+import { CheckCircle2, FileText, ChevronRight, PhoneCall } from 'lucide-react';
 import Button from '../components/Button';
-import SectionTitle from '../components/SectionTitle';
-import ProductCard from '../components/ProductCard';
 import Reveal from '../components/Reveal';
 import { PRODUCTS } from '../data/products';
 
@@ -11,11 +9,8 @@ const ProductDetails = () => {
   const { slug } = useParams();
   // Find product by slug or default to first product
   const product = PRODUCTS.find((p) => p.slug === slug) || PRODUCTS[0];
-
-  // Related products from same category
-  const relatedProducts = PRODUCTS.filter(
-    (p) => p.category === product.category && p.slug !== product.slug
-  ).slice(0, 3);
+  const hiddenSpecs = ['application', 'material', 'gasComponents', 'customization', 'pressure'];
+  const coreSpecs = Object.entries(product.specs).filter(([key]) => !hiddenSpecs.includes(key));
 
   return (
     <div className="pt-28 pb-20 space-y-16">
@@ -47,18 +42,9 @@ const ProductDetails = () => {
                     alt={product.name} 
                     className="w-full h-full object-contain object-center p-5"
                   />
-                  <div className="absolute top-4 left-4 bg-[#D32F2F] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">
-                    {product.categoryName}
-                  </div>
                 </div>
               </div>
             </Reveal>
-
-            {/* Quality Guarantee Note */}
-            <div className="bg-[#FCFBF8] border border-[#E6E4DF] rounded-lg p-4 flex items-center space-x-3 text-xs text-[#7A7D85]">
-              <Shield className="w-5 h-5 text-[#D32F2F] shrink-0" />
-              <span>Product specifications are based on DACOTA's supplied technical catalogue. Configuration may vary by model.</span>
-            </div>
           </div>
 
           {/* Right Column: Title, Features, Specs & Quote CTA */}
@@ -81,7 +67,7 @@ const ProductDetails = () => {
                   Key Technical Features
                 </h3>
                 <ul className="space-y-2 text-xs sm:text-sm text-[#2A2D33]">
-                  {product.features.map((feat, idx) => (
+                  {product.features.slice(0, 4).map((feat, idx) => (
                     <li key={idx} className="flex items-start space-x-2">
                       <CheckCircle2 className="w-4 h-4 text-[#D32F2F] shrink-0 mt-0.5" />
                       <span className="leading-snug">{feat}</span>
@@ -98,7 +84,7 @@ const ProductDetails = () => {
                   Technical Specifications
                 </div>
                 <div className="divide-y divide-[#E6E4DF] text-xs">
-                  {Object.entries(product.specs).map(([key, val]) => (
+                  {coreSpecs.map(([key, val]) => (
                     <div key={key} className="grid grid-cols-3 px-4 py-2.5">
                       <span className="font-semibold text-[#7A7D85] uppercase tracking-wider col-span-1">
                         {key.replace(/([A-Z])/g, ' $1')}
@@ -139,24 +125,6 @@ const ProductDetails = () => {
 
         </div>
       </section>
-
-      {/* Related Equipment Section */}
-      {relatedProducts.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 border-t border-[#E6E4DF]">
-          <SectionTitle 
-            badge="Category Lineup"
-            title="RELATED COMMERCIAL EQUIPMENT"
-            subtitle="Explore additional equipment engineered for similar food-service applications."
-            align="left"
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {relatedProducts.map((rel) => (
-              <ProductCard key={rel.id} product={rel} />
-            ))}
-          </div>
-        </section>
-      )}
 
     </div>
   );
