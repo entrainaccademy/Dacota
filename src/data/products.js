@@ -5,7 +5,7 @@ export const CATEGORIES = [
     name: 'Commercial Gas Fryers',
     shortDesc: 'DACOTA gas fryers for high-volume chicken, QSR, hotel, and catering operations.',
     icon: 'Flame',
-    image: '/image/products/dacota-gas-deep-fryer-front.jpeg',
+    image: '/image/products/dacota-fryer-front-transparent.png',
   },
   {
     id: 'baking-ovens',
@@ -13,7 +13,7 @@ export const CATEGORIES = [
     name: 'Commercial Baking Ovens',
     shortDesc: 'Electric and gas ovens with independent heat control and multiple tray configurations.',
     icon: 'Box',
-    image: '/image/products/dacota-gas-baking-oven.png',
+    image: '/image/products/IMG_1289.PNG',
   },
 ];
 
@@ -93,21 +93,21 @@ const createOven = ({ model, trays, image, type = 'gas' }) => ({
 });
 
 export const PRODUCTS = [
-  createFryer({ model: 'DA-GF90C', capacity: '23 litres', gasLoad: '90,000', burners: 3, image: '/image/products/dacota-gas-deep-fryer-front.jpeg' }),
-  createFryer({ model: 'DA-GF120C', capacity: '23 litres', gasLoad: '120,000', burners: 4, image: '/image/products/dacota-gas-deep-fryer-angle.png' }),
-  createFryer({ model: 'DA-GF150C', capacity: '37 litres', gasLoad: '150,000', burners: 5, image: '/image/products/dacota-gas-deep-fryer-front.jpeg' }),
+  createFryer({ model: 'DA-GF90C', capacity: '23 litres', gasLoad: '90,000', burners: 3, image: '/image/products/dacota-fryer-front-transparent.png' }),
+  createFryer({ model: 'DA-GF120C', capacity: '23 litres', gasLoad: '120,000', burners: 4, image: '/image/products/dacota-fryer-angle-transparent.png' }),
+  createFryer({ model: 'DA-GF150C', capacity: '37 litres', gasLoad: '150,000', burners: 5, image: '/image/products/dacota-fryer-front-transparent.png' }),
 
-  createOven({ model: 'DA-EOG-PZA-1D1T', trays: 1, type: 'electric', image: '/image/products/dacota-electric-baking-oven.png' }),
-  createOven({ model: 'DA-M-GBO-1D1T', trays: 1, image: '/image/products/dacota-oven-1d1t-open.png' }),
-  createOven({ model: 'DA-D-GBO-1D1T', trays: 1, image: '/image/products/dacota-oven-1deck-angle.png' }),
-  createOven({ model: 'DA-D-GBO-1D2T', trays: 2, image: '/image/products/dacota-oven-1deck-2tray.png' }),
-  createOven({ model: 'DA-M-GBO-1D2T', trays: 2, image: '/image/products/dacota-oven-1deck-2tray.png' }),
-  createOven({ model: 'DA-M-GBO-1D3T', trays: 3, image: '/image/products/dacota-oven-1d1t-open.png' }),
-  createOven({ model: 'DA-D-GBO-1D3T', trays: 3, image: '/image/products/dacota-oven-1d1t-open.png' }),
-  createOven({ model: 'DA-D-GBO-2D4T', trays: 4, image: '/image/products/dacota-oven-2deck-4tray.png' }),
-  createOven({ model: 'DA-M-GBO-2D4T', trays: 4, image: '/image/products/dacota-oven-2deck-4tray.png' }),
-  createOven({ model: 'DA-D-GBO-2D6T', trays: 6, image: '/image/products/dacota-oven-2deck-6tray.png' }),
-  createOven({ model: 'DA-M-GBO-2D6T', trays: 6, image: '/image/products/dacota-oven-2deck-6tray.png' }),
-  createOven({ model: 'DA-D-GBO-3D9T', trays: 9, image: '/image/products/dacota-oven-3deck-angle.png' }),
-  createOven({ model: 'DA-M-PPG-1D1T', trays: 1, image: '/image/products/dacota-electric-baking-oven.png' }),
+  createOven({ model: 'DA-EOG-PZA-1D1T', trays: 1, type: 'electric', image: '/image/products/image-1.jpg.jpeg' }),
+  createOven({ model: 'DA-M-GBO-1D1T', trays: 1, image: '/image/products/image-3.jpg.jpeg' }),
+  createOven({ model: 'DA-D-GBO-1D1T', trays: 1, image: '/image/products/IMG_7891.PNG' }),
+  createOven({ model: 'DA-D-GBO-1D2T', trays: 2, image: '/image/products/IMG_9097.PNG' }),
+  createOven({ model: 'DA-M-GBO-1D2T', trays: 2, image: '/image/products/image-5.jpg.jpeg' }),
+  createOven({ model: 'DA-M-GBO-1D3T', trays: 3, image: '/image/products/image-1.jpg.jpeg' }),
+  createOven({ model: 'DA-D-GBO-1D3T', trays: 3, image: '/image/products/IMG_7890.PNG' }),
+  createOven({ model: 'DA-D-GBO-2D4T', trays: 4, image: '/image/products/IMG_7893.PNG' }),
+  createOven({ model: 'DA-M-GBO-2D4T', trays: 4, image: '/image/products/IMG_1287.PNG' }),
+  createOven({ model: 'DA-D-GBO-2D6T', trays: 6, image: '/image/products/IMG_9829.PNG' }),
+  createOven({ model: 'DA-M-GBO-2D6T', trays: 6, image: '/image/products/IMG_1289.PNG' }),
+  createOven({ model: 'DA-D-GBO-3D9T', trays: 9, image: '/image/products/IMG_5893.PNG' }),
+  createOven({ model: 'DA-M-PPG-1D1T', trays: 1, image: '/image/products/IMG_9098.PNG' }),
 ];

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
 import Reveal from '../components/Reveal';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, Send, CheckCircle2 } from 'lucide-react';
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -11,11 +10,7 @@ const Contact = () => {
     companyName: '',
     phone: '',
     email: '',
-    location: '',
-    businessType: 'Restaurant',
-    requiredEquipment: '',
-    projectRequirement: 'Turnkey Project',
-    message: ''
+    location: ''
   });
 
   const handleSubmit = (e) => {
@@ -30,22 +25,10 @@ const Contact = () => {
       <section className="bg-gradient-to-b from-[#E6E4DF]/60 to-[#F5F3EF] py-16 border-b border-[#E6E4DF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Reveal>
-            <span className="text-xs font-mono font-bold text-[#D32F2F] uppercase tracking-widest bg-[#D32F2F]/10 px-3 py-1 rounded">
-              B2B Enquiries & Sales
-            </span>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-[#2A2D33] tracking-tight uppercase mt-4">
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-[#2A2D33] tracking-tight uppercase">
               LET'S BUILD YOUR <br />
               <span className="text-[#D32F2F]">COMMERCIAL KITCHEN</span>
             </h1>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <p className="mt-4 text-base text-[#7A7D85] max-w-2xl mx-auto leading-relaxed">
-              Get in touch with our commercial kitchen equipment specialists and factory engineers for pricing, equipment specs, or custom turnkey project layout proposals.
-            </p>
           </Reveal>
         </div>
       </section>
@@ -55,9 +38,9 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
           {/* Left Column: Contact Form */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 h-full [&>div]:h-full">
             <Reveal>
-              <div className="bg-[#FCFBF8] border border-[#E6E4DF] rounded-xl p-6 sm:p-8 shadow-sm">
+              <div className="bg-[#FCFBF8] border border-[#D8D5CE] rounded-xl p-6 sm:p-8 h-full">
                 
                 {submitted ? (
                   <div className="py-12 text-center space-y-4">
@@ -140,7 +123,7 @@ const Contact = () => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
                       <div>
                         <label className="block text-xs font-bold uppercase text-[#2A2D33] mb-1">
                           Location / City *
@@ -155,71 +138,6 @@ const Contact = () => {
                         />
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-bold uppercase text-[#2A2D33] mb-1">
-                          Business Type *
-                        </label>
-                        <select 
-                          value={formData.businessType}
-                          onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
-                          className="w-full px-3 py-2 bg-[#F5F3EF] border border-[#E6E4DF] rounded text-sm text-[#2A2D33] focus:outline-none focus:ring-2 focus:ring-[#D32F2F] focus:bg-white"
-                        >
-                          <option value="Hotel">Hotel / Resort</option>
-                          <option value="Restaurant">Restaurant / Fine Dining</option>
-                          <option value="Cafe">Café / QSR</option>
-                          <option value="Cloud Kitchen">Cloud / Ghost Kitchen</option>
-                          <option value="Bakery">Bakery & Pastry Unit</option>
-                          <option value="Hospital">Hospital / Healthcare</option>
-                          <option value="Industrial Canteen">Industrial Canteen / Corporate</option>
-                          <option value="Catering">Catering Company</option>
-                          <option value="Institutional">Educational Institution</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold uppercase text-[#2A2D33] mb-1">
-                          Required Equipment Category
-                        </label>
-                        <input 
-                          type="text"
-                          value={formData.requiredEquipment}
-                          onChange={(e) => setFormData({ ...formData, requiredEquipment: e.target.value })}
-                          placeholder="e.g. Four Burner Range, Cold Room"
-                          className="w-full px-3 py-2 bg-[#F5F3EF] border border-[#E6E4DF] rounded text-sm text-[#2A2D33] focus:outline-none focus:ring-2 focus:ring-[#D32F2F] focus:bg-white"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold uppercase text-[#2A2D33] mb-1">
-                          Project Requirement
-                        </label>
-                        <select 
-                          value={formData.projectRequirement}
-                          onChange={(e) => setFormData({ ...formData, projectRequirement: e.target.value })}
-                          className="w-full px-3 py-2 bg-[#F5F3EF] border border-[#E6E4DF] rounded text-sm text-[#2A2D33] focus:outline-none focus:ring-2 focus:ring-[#D32F2F] focus:bg-white"
-                        >
-                          <option value="New Kitchen">New Kitchen Setup</option>
-                          <option value="Kitchen Upgrade">Kitchen Upgrade / Retrofit</option>
-                          <option value="Equipment Purchase">Individual Equipment Purchase</option>
-                          <option value="Turnkey Project">Full Turnkey Project</option>
-                          <option value="Maintenance">Maintenance & AMC</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold uppercase text-[#2A2D33] mb-1">
-                        Project Message / Specifics
-                      </label>
-                      <textarea 
-                        rows="4"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Describe your kitchen dimensions, capacity, meal volume or specific machinery needs..."
-                        className="w-full px-3 py-2 bg-[#F5F3EF] border border-[#E6E4DF] rounded text-sm text-[#2A2D33] focus:outline-none focus:ring-2 focus:ring-[#D32F2F] focus:bg-white"
-                      ></textarea>
                     </div>
 
                     <div className="pt-2">
@@ -234,56 +152,48 @@ const Contact = () => {
             </Reveal>
           </div>
 
-          {/* Right Column: Contact Cards & Google Maps */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Right Column: Contact Details & Google Maps */}
+          <div className="lg:col-span-5 h-full [&>div]:h-full">
             <Reveal delay={0.1}>
-              <div className="bg-[#2A2D33] text-white rounded-xl p-6 sm:p-8 border border-[#3A3E46] space-y-6">
-                <h3 className="text-xl font-bold uppercase border-b border-[#3A3E46] pb-3">
-                  HEADQUARTERS & FACTORY
+              <div className="bg-[#FCFBF8] text-[#2A2D33] rounded-xl p-6 sm:p-8 border border-[#D8D5CE] h-full flex flex-col">
+                <h3 className="text-xl font-semibold tracking-tight border-b border-[#E6E4DF] pb-4">
+                  Contact details
                 </h3>
 
-                <div className="space-y-4 text-xs sm:text-sm text-[#A0A3AB]">
-                  <div className="flex items-start space-x-3">
-                    <Phone className="w-5 h-5 text-[#D32F2F] shrink-0 mt-0.5" />
+                <div className="divide-y divide-[#E6E4DF] mt-2">
+                  <div className="flex items-center gap-4 py-5">
+                    <span className="w-10 h-10 rounded-full bg-[#D32F2F]/10 text-[#D32F2F] flex items-center justify-center shrink-0">
+                      <Phone className="w-4 h-4" />
+                    </span>
                     <div>
-                      <div className="text-white font-bold uppercase">Phone Enquiries</div>
-                      <div>+91 [Phone Number Placeholder]</div>
-                      <div className="text-[11px] text-[#7A7D85]">Mon - Sat: 9:00 AM - 7:00 PM IST</div>
+                      <div className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#8A8882]">Phone enquiries</div>
+                      <div className="text-sm font-semibold mt-1">Phone number to be updated</div>
+                      <div className="text-[10px] text-[#8A8882] mt-0.5">Monday–Saturday, 9:00 AM–7:00 PM</div>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-3">
-                    <Mail className="w-5 h-5 text-[#D32F2F] shrink-0 mt-0.5" />
+                  <div className="flex items-center gap-4 py-5">
+                    <span className="w-10 h-10 rounded-full bg-[#D32F2F]/10 text-[#D32F2F] flex items-center justify-center shrink-0">
+                      <Mail className="w-4 h-4" />
+                    </span>
                     <div>
-                      <div className="text-white font-bold uppercase">Email Enquiries</div>
-                      <div className="text-white font-semibold">info@dacotaequipment.com</div>
-                      <div className="text-[11px] text-[#7A7D85]">Quotations & Drawings</div>
+                      <div className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#8A8882]">Email enquiries</div>
+                      <a href="mailto:info@dacotaequipment.com" className="text-sm font-semibold mt-1 inline-block hover:text-[#D32F2F] transition-colors">info@dacotaequipment.com</a>
+                      <div className="text-[10px] text-[#8A8882] mt-0.5">Quotations and drawings</div>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="w-5 h-5 text-[#D32F2F] shrink-0 mt-0.5" />
-                    <div>
-                      <div className="text-white font-bold uppercase">Factory Address</div>
-                      <div>DACOTA Commercial Kitchen Equipment Works</div>
-                      <div>Industrial Park Phase II [Address Placeholder]</div>
-                      <div>India</div>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </Reveal>
 
-            {/* Google Maps Interactive Placeholder Frame */}
-            <Reveal delay={0.2}>
-              <div className="bg-[#FCFBF8] border border-[#E6E4DF] rounded-xl overflow-hidden shadow-sm p-2">
-                <div className="relative h-64 bg-[#2A2D33] rounded-lg overflow-hidden flex flex-col items-center justify-center text-center p-6 border border-[#3A3E46]">
-                  <MapPin className="w-10 h-10 text-[#D32F2F] mb-2 animate-bounce" />
-                  <span className="text-sm font-bold text-white uppercase tracking-wider">DACOTA FACTORY LOCATION</span>
-                  <span className="text-xs text-[#A0A3AB] mt-1">[Interactive Google Maps Embed Placeholder]</span>
-                  <div className="mt-3 px-3 py-1 bg-[#D32F2F] text-white text-[11px] font-bold rounded">
-                    Pan India Dispatch Network
-                  </div>
+                <div className="mt-auto pt-5 border-t border-[#E6E4DF]">
+                  <iframe
+                    title="Entrain Academy location"
+                    src="https://www.google.com/maps?q=Entrain%20Academy&output=embed"
+                    className="w-full h-48 rounded-lg border border-[#E6E4DF]"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
                 </div>
               </div>
             </Reveal>

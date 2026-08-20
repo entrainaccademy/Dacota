@@ -2,29 +2,29 @@ export const SERVICES = [
   {
     id: "equipment-supply",
     title: "Commercial Kitchen Equipment Supply",
-    description: "Supply of professional food-service machinery, broasting machines, fried chicken equipment, commercial ovens, bakery machinery, refrigeration, and SS fabrication.",
+    description: "Reliable commercial equipment selected around your menu, volume, and kitchen needs.",
     icon: "Box",
-    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800"
+    image: "/image/service-equipment-supply.jpg"
   },
   {
     id: "equipment-installation",
     title: "Kitchen Equipment Installation",
-    description: "Professional on-site equipment uncrating, leveling, utility connections (gas, electrical, plumbing), testing, and operational commissioning by factory technicians.",
+    description: "On-site placement, utility connections, testing, and commissioning by experienced technicians.",
     icon: "Wrench",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800"
+    image: "/image/reliable-gorenje-maintenance-services-fa.jpg"
   },
   {
     id: "kitchen-setup-solutions",
     title: "Kitchen Setup & Solutions",
-    description: "Complete commercial kitchen setup solutions, layout workflow optimization, station zoning, utility load planning, and exhaust ventilation setups.",
+    description: "Practical layouts and complete setups designed for safer, faster kitchen workflows.",
     icon: "Compass",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800"
+    image: "/image/stainless-steel-kitchen-equipment-fabric.jpg"
   },
   {
     id: "maintenance-support",
     title: "Equipment Maintenance & Support",
-    description: "Comprehensive equipment maintenance, routine servicing, emergency breakdown support, burner calibration, and availability of OEM spare parts.",
+    description: "Preventive servicing, breakdown assistance, calibration, and spare-parts support.",
     icon: "ShieldCheck",
-    image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&q=80&w=800"
+    image: "/image/maintaince_and_support.jpg"
   }
 ];
