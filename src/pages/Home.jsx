@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -10,6 +10,18 @@ import ProductCard from '../components/ProductCard';
 import Reveal from '../components/Reveal';
 import { PRODUCTS } from '../data/products';
 
+// Hero Background Images Carousel
+const heroImages = [
+  {
+    url: "/image/hero1.webp",
+    alt: "DACOTA Commercial Kitchen Equipment Environment"
+  },
+  {
+    url: "/image/Affordable 36_ Commercial Gas Griddle for Food Trucks & Small Kitchens.jpg",
+    alt: "Affordable 36 Commercial Gas Griddle for Food Trucks & Commercial Kitchens"
+  }
+];
+
 // Company Statistics (Est. 2021 + Placeholders)
 const companyStats = [
   { value: "5+", label: "Years Experience (Est. 2021)" },
@@ -20,6 +32,16 @@ const companyStats = [
 ];
 
 const Home = () => {
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // Smooth auto-slide every 5s
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="space-y-20 md:space-y-28 pb-16">
 
@@ -27,18 +49,28 @@ const Home = () => {
       {/* 1. HERO SECTION */}
       {/* ================================================== */}
       <section className="relative pt-32 sm:pt-40 pb-24 md:pb-36 overflow-hidden min-h-[580px] flex items-center bg-[#09090B]">
-        {/* Background Image & Layered Overlays */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/image/hero1.webp"
-            alt="DACOTA Commercial Kitchen Equipment Background"
-            className="w-full h-full object-cover object-center transform scale-105 transition-transform duration-1000"
-          />
-          {/* Light-to-translucent gradient on left for high-contrast typography, fading into kitchen image */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/95 to-[#FAF9F6]/60 lg:via-[#FAF9F6]/85 lg:to-transparent" />
-          {/* Top and bottom subtle blends */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F6]/80 via-transparent to-[#FAF9F6]" />
+        {/* Smooth Sliding Background Track */}
+        <div
+          className="absolute inset-0 flex transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
+          style={{ transform: `translateX(-${currentHeroIndex * 100}%)` }}
+        >
+          {heroImages.map((img, idx) => (
+            <div
+              key={idx}
+              className="relative w-full h-full flex-shrink-0 overflow-hidden"
+            >
+              <img
+                src={img.url}
+                alt={img.alt}
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          ))}
         </div>
+
+        {/* Ambient Gradient Overlays for High Legibility */}
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/90 to-[#FAF9F6]/40 lg:via-[#FAF9F6]/80 lg:to-transparent z-[1] pointer-events-none" /> */}
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F6]/70 via-transparent to-[#FAF9F6] z-[1] pointer-events-none" /> */}
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="max-w-3xl space-y-6 text-left">
@@ -81,7 +113,7 @@ const Home = () => {
       {/* ================================================== */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
+
           {/* Left Column: Heading, Paragraph, CTA */}
           <div className="lg:col-span-5 space-y-6 text-left">
             <Reveal>
@@ -143,6 +175,7 @@ const Home = () => {
       {/* ================================================== */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
+          badge="Product Range"
           title="COMMERCIAL KITCHEN MACHINERY"
           subtitle="Explore high-performance commercial equipment engineered for continuous, heavy-duty culinary operations."
         />
