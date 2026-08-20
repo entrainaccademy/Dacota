@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 const ProductCard = ({ product }) => {
   return (
-    <article className="catalogue-card group">
+    <article className={`catalogue-card group ${product.category === 'commercial-fryers' ? 'catalogue-card--fryer' : ''}`}>
       <Link to={`/products/${product.slug}`} className="catalogue-card-link" aria-label={`View ${product.name}`}>
         <div className="catalogue-card-image">
           <img src={product.image} alt={product.name} loading="lazy" />
