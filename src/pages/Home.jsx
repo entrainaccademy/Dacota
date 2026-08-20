@@ -6,7 +6,9 @@ import {
 } from 'lucide-react';
 import Button from '../components/Button';
 import SectionTitle from '../components/SectionTitle';
+import ProductCard from '../components/ProductCard';
 import Reveal from '../components/Reveal';
+import { PRODUCTS } from '../data/products';
 
 // Company Statistics (Est. 2021 + Placeholders)
 const companyStats = [
@@ -137,7 +139,31 @@ const Home = () => {
       </section>
 
       {/* ================================================== */}
-      {/* 3. TURNKEY SOLUTIONS SECTION */}
+      {/* 3. FEATURED PRODUCTS SECTION */}
+      {/* ================================================== */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionTitle
+          title="COMMERCIAL KITCHEN MACHINERY"
+          subtitle="Explore high-performance commercial equipment engineered for continuous, heavy-duty culinary operations."
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PRODUCTS.slice(0, 6).map((product, idx) => (
+            <Reveal key={product.id} delay={idx * 0.08}>
+              <ProductCard product={product} />
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Button to="/products" variant="outline" size="lg" icon={ArrowRight}>
+            VIEW ALL PRODUCTS
+          </Button>
+        </div>
+      </section>
+
+      {/* ================================================== */}
+      {/* 4. TURNKEY SOLUTIONS SECTION */}
       {/* ================================================== */}
       <section className="bg-zinc-100/70 py-16 md:py-24 border-y border-zinc-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
