@@ -1,6 +1,6 @@
 import React from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle2, FileText, ChevronRight, Shield, Settings, PhoneCall } from 'lucide-react';
+import { useParams, Link } from 'react-router-dom';
+import { CheckCircle2, FileText, ChevronRight, Shield, PhoneCall } from 'lucide-react';
 import Button from '../components/Button';
 import SectionTitle from '../components/SectionTitle';
 import ProductCard from '../components/ProductCard';
@@ -9,8 +9,6 @@ import { PRODUCTS } from '../data/products';
 
 const ProductDetails = () => {
   const { slug } = useParams();
-  const navigate = useNavigate();
-
   // Find product by slug or default to first product
   const product = PRODUCTS.find((p) => p.slug === slug) || PRODUCTS[0];
 
@@ -43,11 +41,11 @@ const ProductDetails = () => {
           <div className="lg:col-span-6 space-y-4">
             <Reveal>
               <div className="bg-[#FCFBF8] border border-[#E6E4DF] rounded-xl overflow-hidden shadow-lg p-2">
-                <div className="relative h-[380px] sm:h-[480px] rounded-lg overflow-hidden bg-[#2A2D33]">
+                <div className="relative h-[380px] sm:h-[480px] rounded-lg overflow-hidden bg-white">
                   <img 
                     src={product.image} 
                     alt={product.name} 
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-contain object-center p-5"
                   />
                   <div className="absolute top-4 left-4 bg-[#D32F2F] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">
                     {product.categoryName}
@@ -59,7 +57,7 @@ const ProductDetails = () => {
             {/* Quality Guarantee Note */}
             <div className="bg-[#FCFBF8] border border-[#E6E4DF] rounded-lg p-4 flex items-center space-x-3 text-xs text-[#7A7D85]">
               <Shield className="w-5 h-5 text-[#D32F2F] shrink-0" />
-              <span>Fabricated with Heavy-Gauge Food Grade SS 304. Tested under continuous commercial load.</span>
+              <span>Product specifications are based on DACOTA's supplied technical catalogue. Configuration may vary by model.</span>
             </div>
           </div>
 
@@ -67,10 +65,7 @@ const ProductDetails = () => {
           <div className="lg:col-span-6 space-y-6">
             <Reveal>
               <div>
-                <span className="text-xs font-mono font-bold text-[#D32F2F] uppercase tracking-widest bg-[#D32F2F]/10 px-3 py-1 rounded">
-                  OFFICIAL EQUIPMENT SPECIFICATION
-                </span>
-                <h1 className="text-2xl sm:text-4xl font-extrabold text-[#2A2D33] uppercase tracking-tight mt-3 leading-tight">
+                <h1 className="text-2xl sm:text-4xl font-extrabold text-[#2A2D33] uppercase tracking-tight leading-tight">
                   {product.name}
                 </h1>
                 <p className="text-sm sm:text-base text-[#7A7D85] leading-relaxed mt-4">

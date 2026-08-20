@@ -44,7 +44,7 @@ const Products = () => {
           <div className="products-grid">
             {filteredProducts.map((product, index) => (
               <motion.div key={product.id} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-30px' }} transition={{ duration: 0.48, delay: Math.min(index * 0.05, 0.25) }}>
-                <ProductCard product={product} index={PRODUCTS.findIndex((item) => item.id === product.id)} />
+                <ProductCard product={product} />
               </motion.div>
             ))}
           </div>
