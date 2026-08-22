@@ -10,7 +10,7 @@ const ProjectCard = ({ project }) => {
         <img 
           src={project.image} 
           alt={project.title} 
-          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+          className="w-full h-full object-cover object-center opacity-90 group-hover:opacity-100 transition-opacity duration-300"
         />
         <div className="absolute top-3 left-3 bg-[#09090B] text-white text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded border border-zinc-700">
           {project.type}

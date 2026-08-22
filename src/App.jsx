@@ -32,7 +32,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-[#F5F3EF] text-[#2A2D33] font-sans flex flex-col justify-between selection:bg-[#D32F2F] selection:text-white">
+      <div className="min-h-screen bg-white text-[#2A2D33] font-sans flex flex-col justify-between selection:bg-[#D32F2F] selection:text-white">
         
         {/* Sticky Header */}
         <Navbar />

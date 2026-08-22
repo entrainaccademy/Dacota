@@ -28,7 +28,7 @@ const CategoryCard = ({ category }) => {
         <img 
           src={category.image} 
           alt={category.name}
-          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100" 
+          className="w-full h-full object-cover object-center opacity-90 group-hover:opacity-100 transition-opacity duration-300" 
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
         

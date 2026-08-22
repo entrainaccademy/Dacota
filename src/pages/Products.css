@@ -1,7 +1,7 @@
 .products-page { background: #f6f5f1; color: #111113; }
 .products-shell { width: min(1240px, calc(100% - 48px)); margin-inline: auto; }
 .products-intro { padding: 170px 0 92px; background: #121214; color: white; }
-.products-intro-grid { display: block; }
+.products-intro-grid { display: grid; grid-template-columns: 1.45fr .55fr; align-items: end; gap: 80px; }
 .products-intro h1 { max-width: 850px; margin: 0; font-size: clamp(54px, 6.6vw, 92px); font-weight: 500; line-height: .96; letter-spacing: -.058em; }
 .products-intro-aside { padding-bottom: 8px; }
 .products-intro-aside p { color: #96969b; font-size: 13px; line-height: 1.75; }
@@ -14,12 +14,12 @@
 .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 68px 36px; }
 .catalogue-card { height: 100%; }
 .catalogue-card-link { display: block; height: 100%; color: inherit; }
-.catalogue-card-image { position: relative; display: block; height: 305px; overflow: hidden; background: transparent; }
-.catalogue-card-image img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; filter: saturate(.82); transition: transform .65s cubic-bezier(.16,1,.3,1), filter .35s; }
-.catalogue-card:hover .catalogue-card-image img { transform: scale(1.045); filter: saturate(1); }
+.catalogue-card-image { position: relative; display: block; height: 305px; overflow: hidden; background: #e6e4de; }
+.catalogue-card-image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.82); transition: transform .65s cubic-bezier(.16,1,.3,1), filter .35s; }
+.catalogue-card:hover .catalogue-card-image img { filter: saturate(1); }
 .catalogue-card--fryer .catalogue-card-image { height: 365px; background: transparent; }
-.catalogue-card--fryer .catalogue-card-image img { padding: 4px 12px 0; box-sizing: border-box; object-fit: contain; object-position: center bottom; mix-blend-mode: normal; filter: none; }
-.catalogue-card--fryer:hover .catalogue-card-image img { transform: scale(1.018); filter: none; }
+.catalogue-card--fryer .catalogue-card-image img { padding: 4px 12px 0; box-sizing: border-box; object-fit: contain; object-position: center bottom; filter: none; }
+.catalogue-card--fryer:hover .catalogue-card-image img { filter: none; }
 .catalogue-card-body { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-top: 18px; }
 .catalogue-card h3 { margin: 0; max-width: 290px; font-size: 18px; font-weight: 600; line-height: 1.4; letter-spacing: -.025em; transition: color .2s; }
 .catalogue-card:hover h3 { color: #d32f2f; }

@@ -41,13 +41,13 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 bg-white z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-zinc-200 py-3'
           : 'bg-[#FAF9F6]/90 backdrop-blur-sm border-b border-zinc-200/60 py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
           {/* Brand Logo */}
@@ -56,15 +56,15 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+          <nav className="hidden lg:flex items-center space-x-1  xl:space-x-2">
             {navItems.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `px-2.5 py-1.5 text-xs xl:text-sm font-semibold tracking-wide uppercase transition-colors rounded ${
+                  `px-2.5 py-1.5 text-xs xl:text-sm font-semibold  tracking-wide uppercase transition-colors rounded ${
                     isActive
-                      ? 'text-[#09090B] font-extrabold bg-zinc-100 border-b-2 border-[#D32F2F]'
+                      ? 'text-[#09090B] font-extrabold bg-white border-b-2 border-[#D32F2F]'
                       : 'text-[#09090B] hover:text-[#D32F2F] hover:bg-zinc-100'
                   }`
                 }
