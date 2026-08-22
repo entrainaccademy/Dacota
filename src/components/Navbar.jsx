@@ -39,12 +39,16 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  const isHomePage = location.pathname === '/';
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 bg-white z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-zinc-200 py-3'
-          : 'bg-[#FAF9F6]/90 backdrop-blur-sm border-b border-zinc-200/60 py-4'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isHomePage
+          ? 'bg-transparent py-4'
+          : scrolled
+            ? 'bg-white shadow-sm border-b border-zinc-200 py-3'
+            : 'bg-white border-b border-zinc-200/60 py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">
@@ -64,8 +68,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `px-2.5 py-1.5 text-xs xl:text-sm font-semibold  tracking-wide uppercase transition-colors rounded ${
                     isActive
-                      ? 'text-[#09090B] font-extrabold bg-white border-b-2 border-[#D32F2F]'
-                      : 'text-[#09090B] hover:text-[#D32F2F] hover:bg-zinc-100'
+                      ? 'text-[#09090B] font-extrabold  border-b-2 border-[#D32F2F]'
+                      : 'text-[#09090B] hover:text-[#D32F2F] '
                   }`
                 }
               >
@@ -101,13 +105,17 @@ const Navbar = () => {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               type="button"
-              className="p-2 rounded-md text-[#09090B] hover:text-[#D32F2F] hover:bg-zinc-200 focus:outline-none"
+              className={`p-2 rounded-md focus:outline-none transition-colors ${
+                isHomePage
+                  ? 'text-white hover:text-zinc-200'
+                  : 'text-[#09090B] hover:text-[#D32F2F] hover:bg-zinc-200'
+              }`}
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? (
                 <X className="w-6 h-6 text-[#D32F2F]" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className={`w-6 h-6 ${isHomePage ? 'text-white' : 'text-[#09090B]'}`} />
               )}
             </button>
           </div>
